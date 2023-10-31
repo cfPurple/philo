@@ -42,8 +42,6 @@ typedef struct s_philo
 int     check_args(int ac, char **av);
 int	    ft_atoi(char *str);
 void    init_data(char **av, t_param *data);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
 void    init_philo(t_param *data);
 void	philosopher(t_param *data);
 void    *philo_rt(void *philo);

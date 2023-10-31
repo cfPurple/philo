@@ -26,26 +26,6 @@ int	ft_atoi(char *str)
 	return (somme * signe);
 }
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*tab;
-
-	tab = malloc(count * size);
-	if (tab == NULL)
-		return (NULL);
-	ft_bzero(tab, count * size);
-	return (tab);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*str;
-
-	str = (unsigned char *)s;
-	while (n-- > 0)
-		*str++ = '\0';
-}
-
 void print(t_philo *philo, char *str)
 {
 	if (philo->ph_data->end == 0)

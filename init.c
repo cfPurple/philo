@@ -12,8 +12,8 @@ void    init_data(char **av, t_param *data)
 		data->must_eat = ft_atoi(av[5]);
     else
         data->must_eat = 0;
-    data->philo = ft_calloc(data->nb_philo, (sizeof(t_philo)));//malloc des philo
-    data->fork = ft_calloc(data->nb_philo, (sizeof(pthread_mutex_t)));//malloc fork protegées
+    data->philo = malloc(data->nb_philo * (sizeof(t_philo)));//malloc des philo
+    data->fork = malloc(data->nb_philo * (sizeof(pthread_mutex_t)));//malloc fork protegées
     while (i++ < data->nb_philo)
 		pthread_mutex_init(&data->fork[i], NULL);//init mutex des fork
     init_philo(data);//init philo
