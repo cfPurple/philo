@@ -11,7 +11,7 @@ void	philosopher(t_param *data)
 		i = -1;
 		while (++i < data->nb_philo)
 			pthread_create(&data->philo[i].thread_id, NULL, &philo_rt, &data->philo[i]);
-		while (data->game_over == 0)
+		while (data->end == 0)
 			checkers(data);
 	}
 }
@@ -23,7 +23,7 @@ void    *philo_rt(void *philo)
 	ph = (t_philo *)philo;
     if (ph->id % 2 == 1)
             ft_usleep(ph->ph_data->time_to_eat);
-	while(ph->ph_data->game_over == 0)
+	while(ph->ph_data->end == 0)
 	{
 		if(ph->ph_data->must_eat > 0 && ph->m_eaten == ph->ph_data->must_eat)
 			break;

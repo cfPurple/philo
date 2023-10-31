@@ -18,7 +18,7 @@ typedef struct s_param
     int     time_to_eat;
     int     time_to_sleep;
     int     must_eat;
-    int     game_over;
+    int     end;
     long long    t0;
     pthread_mutex_t	lock;
     t_philo *philo;

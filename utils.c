@@ -48,7 +48,7 @@ void	ft_bzero(void *s, size_t n)
 
 void print(t_philo *philo, char *str)
 {
-	if (philo->ph_data->game_over == 0)
+	if (philo->ph_data->end == 0)
 	{
     	pthread_mutex_lock(&philo->ph_data->lock);
     	printf("%lld\t%d\t%s\n", timestamp(philo->ph_data), philo->id, str);

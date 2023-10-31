@@ -2,13 +2,13 @@
 
 void think(t_philo *philo)
 {
-    if (philo->ph_data->game_over == 0)
+    if (philo->ph_data->end == 0)
         print(philo, "is thinking");
 }
 
 void eat(t_philo *philo)
 {
-    if (philo->ph_data->game_over == 0)
+    if (philo->ph_data->end == 0)
     {
         pthread_mutex_lock(&philo->ph_data->fork[philo->l_fork]);
 		print(philo, "has taken a fork");
@@ -25,7 +25,7 @@ void eat(t_philo *philo)
 
 void philo_sleep(t_philo *philo)
 {
-    if (philo->ph_data->game_over == 0)
+    if (philo->ph_data->end == 0)
     {
         print(philo, "is sleeping");
         ft_usleep(philo->ph_data->time_to_sleep);
@@ -50,6 +50,6 @@ void	*solo_philo(t_philo *philo)
 	print(philo, "has taken a fork");
 	ft_usleep(philo->ph_data->time_to_die);
 	print(philo, "died");
-	philo->ph_data->game_over = 1;
+	philo->ph_data->end = 1;
     return (NULL);
 }

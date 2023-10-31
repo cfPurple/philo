@@ -36,7 +36,7 @@ void checkers(t_param *data)
 
 	i = 0;
 	j = 0;
-	while (data->game_over == 0)
+	while (data->end == 0)
     {
         check_if_dead(&data->philo[j]);
         if (data->must_eat > 0)
@@ -49,7 +49,7 @@ void checkers(t_param *data)
 			    i++;
 			}
             if (i == data->nb_philo)
-				data->game_over = 1;
+				data->end = 1;
         }
         if (j == data->nb_philo - 1)
 		    j = -1;
@@ -60,10 +60,11 @@ void checkers(t_param *data)
 void	check_if_dead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->ph_data->check);
-	if ((timestamp(philo->ph_data) - philo->lastmeal) >= philo->ph_data->time_to_die)
+	if ((timestamp(philo->ph_data) - philo->lastmeal) \
+		>= philo->ph_data->time_to_die)
 	{
 		print(philo, "died");
-		philo->ph_data->game_over = 1;
+		philo->ph_data->end = 1;
 	}
 	pthread_mutex_unlock(&philo->ph_data->check);
 }

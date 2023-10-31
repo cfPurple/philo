@@ -19,7 +19,7 @@ void    init_data(char **av, t_param *data)
     init_philo(data);//init philo
 	pthread_mutex_init(&data->lock, NULL);
 	pthread_mutex_init(&data->check, NULL);
-	data->game_over = 0;
+	data->end = 0;
 	data->t0 = ft_time();
 }
 
